@@ -46,7 +46,7 @@ fn start(argc: int, argv: *const *const u8) -> int {
 }
 
 fn main() {
-    let mut screen = screen::Screen::new(800, 600, "Window", VS_SRC, FS_SRC);
+    let mut screen = screen::Screen::new(800, 600, "Window".to_string(), VS_SRC, FS_SRC);
 
     screen.add_geom("up triangle".to_string(), box VERTEX_DATA);
     screen.add_geom("down triangle".to_string(), box VERTEX_DATA_2);

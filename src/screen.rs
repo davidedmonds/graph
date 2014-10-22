@@ -1,7 +1,7 @@
 extern crate gl;
 
 use gl::types::*;
-use glutin::Window;
+use glutin::{Window, WindowBuilder};
 use std::collections::HashMap;
 use std::mem;
 use std::ptr;
@@ -10,13 +10,10 @@ use program::Program;
 
 struct Geometry<'g> {
   vao: u32,
-  vbo: u32,
-  vertices: Box<[GLfloat]>
+  vbo: u32
 }
 
 pub struct Screen<'s> {
-  pub width: u16,
-  pub height: u16,
   pub should_close: bool,
   window: Window,
   program: Program,
@@ -24,9 +21,11 @@ pub struct Screen<'s> {
 }
 
 impl<'s> Screen<'s> {
-  pub fn new<'s>(width: u16, height: u16, title: &str, vertex_shader: &str, fragment_shader: &str) -> Screen<'s> {
-    let window = Window::new().unwrap();
-    window.set_title(title);
+  pub fn new<'s>(width: uint, height: uint, title: String, vertex_shader: &str, fragment_shader: &str) -> Screen<'s> {
+    let window = WindowBuilder::new()
+      .with_dimensions(width, height)
+      .with_title(title)
+      .build().unwrap();
     unsafe { window.make_current() };
     // Load the OpenGL function pointers
     gl::load_with(|s| window.get_proc_address(s));
@@ -34,8 +33,6 @@ impl<'s> Screen<'s> {
     let program = Program::new(vertex_shader, fragment_shader);
 
     Screen {
-      width: width,
-      height: height,
       window: window,
       program: program,
       should_close: false,
@@ -72,8 +69,7 @@ impl<'s> Screen<'s> {
     }
     self.geometry.insert(label, Geometry {
       vao: vao,
-      vbo: vbo,
-      vertices: vertices
+      vbo: vbo
     });
   }
 
