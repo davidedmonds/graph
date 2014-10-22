@@ -2,13 +2,32 @@
 name = "graph"
 version = "0.0.1"
 dependencies = [
- "kiss3d 0.1.0 (git+https://github.com/sebcrozet/kiss3d#0da599435c1ec75d0ea0cc4ddfb9adb9dbbceb8e)",
+ "gl 0.0.1 (git+https://github.com/bjz/gl-rs#feed7be39546edb7e8781e3fbe5892caa41a5383)",
+ "glutin 0.0.1 (git+http://github.com/tomaka/glutin#c8ea2bf587429b5b59d5a41f7ebb16a7998badd9)",
 ]
 
 [[package]]
-name = "freetype-rs"
-version = "0.0.0"
-source = "git+https://github.com/PistonDevelopers/freetype-rs#54efba2495235fd87a4648b9c7e04d1f73938122"
+name = "android_glue"
+version = "0.0.1"
+source = "git+https://github.com/tomaka/android-rs-glue#fa077fbc181dc2a7fbb21491b3268ee06d149f94"
+dependencies = [
+ "compile_msg 0.1.0 (git+https://github.com/huonw/compile_msg#10e0f57069ee703bd07b07330dd0ada4e75c8622)",
+]
+
+[[package]]
+name = "cocoa"
+version = "0.1.0"
+source = "git+https://github.com/DavidPartouche/rust-cocoa#b9cbbd50adbae585f446cb5c7c70c63946676dab"
+
+[[package]]
+name = "compile_msg"
+version = "0.1.0"
+source = "git+https://github.com/huonw/compile_msg#10e0f57069ee703bd07b07330dd0ada4e75c8622"
+
+[[package]]
+name = "core_foundation"
+version = "0.1.0"
+source = "git+https://github.com/servo/rust-core-foundation#5caab8bea4bb8c8077cdcfbebd614ecbe7e8251b"
 
 [[package]]
 name = "gl"
@@ -28,18 +47,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "glfw"
+name = "glutin"
 version = "0.0.1"
-source = "git+https://github.com/bjz/glfw-rs#d394c244575ed879e933dffcdab06d4276a5cdae"
+source = "git+http://github.com/tomaka/glutin#c8ea2bf587429b5b59d5a41f7ebb16a7998badd9"
 dependencies = [
- "glfw-sys 3.0.4 (git+https://github.com/servo/glfw?ref=cargo-3.0.4#65a2b4721276589d9de24f6a9999a2db37286cae)",
- "semver 0.1.0 (git+https://github.com/rust-lang/semver#0eee1b33e90a62ed03a123b94c8e06cdbaf5b662)",
+ "android_glue 0.0.1 (git+https://github.com/tomaka/android-rs-glue#fa077fbc181dc2a7fbb21491b3268ee06d149f94)",
+ "cocoa 0.1.0 (git+https://github.com/DavidPartouche/rust-cocoa#b9cbbd50adbae585f446cb5c7c70c63946676dab)",
+ "compile_msg 0.1.0 (git+https://github.com/huonw/compile_msg#10e0f57069ee703bd07b07330dd0ada4e75c8622)",
+ "core_foundation 0.1.0 (git+https://github.com/servo/rust-core-foundation#5caab8bea4bb8c8077cdcfbebd614ecbe7e8251b)",
+ "gl_generator 0.0.1 (git+https://github.com/bjz/gl-rs#feed7be39546edb7e8781e3fbe5892caa41a5383)",
 ]
-
-[[package]]
-name = "glfw-sys"
-version = "3.0.4"
-source = "git+https://github.com/servo/glfw?ref=cargo-3.0.4#65a2b4721276589d9de24f6a9999a2db37286cae"
 
 [[package]]
 name = "khronos_api"
@@ -47,43 +64,7 @@ version = "0.0.1"
 source = "git+https://github.com/bjz/gl-rs#feed7be39546edb7e8781e3fbe5892caa41a5383"
 
 [[package]]
-name = "kiss3d"
-version = "0.1.0"
-source = "git+https://github.com/sebcrozet/kiss3d#0da599435c1ec75d0ea0cc4ddfb9adb9dbbceb8e"
-dependencies = [
- "freetype-rs 0.0.0 (git+https://github.com/PistonDevelopers/freetype-rs#54efba2495235fd87a4648b9c7e04d1f73938122)",
- "gl 0.0.1 (git+https://github.com/bjz/gl-rs#feed7be39546edb7e8781e3fbe5892caa41a5383)",
- "glfw 0.0.1 (git+https://github.com/bjz/glfw-rs#d394c244575ed879e933dffcdab06d4276a5cdae)",
- "nalgebra 0.1.0 (git+https://github.com/sebcrozet/nalgebra#e2fc8aa764351fa90bdcbeefe3520e0f05e239c4)",
- "ncollide 0.1.0 (git+https://github.com/sebcrozet/ncollide#78c54364c236927ff53d43bab331ea23eb338f1f)",
- "stb_image 0.1.0 (git+https://github.com/servo/rust-stb-image#f5022de4ad6bb474a03493d1f274dde9b0f1af0c)",
-]
-
-[[package]]
-name = "nalgebra"
-version = "0.1.0"
-source = "git+https://github.com/sebcrozet/nalgebra#e2fc8aa764351fa90bdcbeefe3520e0f05e239c4"
-
-[[package]]
-name = "ncollide"
-version = "0.1.0"
-source = "git+https://github.com/sebcrozet/ncollide#78c54364c236927ff53d43bab331ea23eb338f1f"
-dependencies = [
- "nalgebra 0.1.0 (git+https://github.com/sebcrozet/nalgebra#e2fc8aa764351fa90bdcbeefe3520e0f05e239c4)",
-]
-
-[[package]]
 name = "rust-xml"
 version = "0.1.0"
 source = "git+https://github.com/netvl/rust-xml#f86f02b3b1c355080136b0acc322b3318c195cda"
-
-[[package]]
-name = "semver"
-version = "0.1.0"
-source = "git+https://github.com/rust-lang/semver#0eee1b33e90a62ed03a123b94c8e06cdbaf5b662"
-
-[[package]]
-name = "stb_image"
-version = "0.1.0"
-source = "git+https://github.com/servo/rust-stb-image#f5022de4ad6bb474a03493d1f274dde9b0f1af0c"
 

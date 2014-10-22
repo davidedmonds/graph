@@ -4,8 +4,8 @@ name = "graph"
 version = "0.0.1"
 authors = ["David Edmonds <edmonds.d.r@gmail.com>"]
 
-[dependencies.glium]
-git = "https://github.com/tomaka/glium"
+[dependencies.gl]
+git = "https://github.com/bjz/gl-rs"
 
 [dependencies.glutin]
 git = "https://github.com/tomaka/glutin"
