@@ -8,5 +8,5 @@ extern crate native;
 
 use gl::types::*;
 
-mod screen;
+pub mod screen;
 mod program;
