@@ -8,4 +8,4 @@ authors = ["David Edmonds <edmonds.d.r@gmail.com>"]
 git = "https://github.com/bjz/gl-rs"
 
 [dependencies.glutin]
-git = "https://github.com/davidedmonds/glutin"
+git = "https://github.com/tomaka/glutin"
