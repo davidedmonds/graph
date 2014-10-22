@@ -1,14 +1,14 @@
 extern crate gl;
 
 use gl::types::*;
-use std::mem;
 use std::ptr;
 use std::str;
 
 pub struct Program {
+  pub id: u32,
+
   vertex: u32,
   fragment: u32,
-  id: u32
 }
 
 fn compile_shader(src: &str, ty: GLenum) -> GLuint {
@@ -57,7 +57,7 @@ fn link_program(vs: GLuint, fs: GLuint) -> GLuint {
 }
 
 impl Program {
-  fn new(vertex: &str, fragment: &str) -> Program {
+  pub fn new(vertex: &str, fragment: &str) -> Program {
     // Create GLSL shaders
     let vs = compile_shader(vertex, gl::VERTEX_SHADER);
     let fs = compile_shader(fragment, gl::FRAGMENT_SHADER);
@@ -68,5 +68,13 @@ impl Program {
       fragment: fs,
       id: program
     }
+  }
+}
+
+impl Drop for Program {
+  fn drop(&mut self) {
+    gl::DeleteProgram(self.id);
+    gl::DeleteShader(self.fragment);
+    gl::DeleteShader(self.vertex);
   }
 }
